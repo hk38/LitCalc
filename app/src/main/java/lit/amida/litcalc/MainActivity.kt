@@ -1,5 +1,7 @@
 package lit.amida.litcalc
 
+import android.content.res.ColorStateList
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
@@ -16,6 +18,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        disableOperator()
 
         buttonClear.setOnClickListener {
             disableOperator()
@@ -42,220 +46,118 @@ class MainActivity : AppCompatActivity() {
         }
 
         buttonPlus.setOnClickListener {
-            disableOperator()
-            buttonPlus.isClickable = true
-            buttonPlus.setBackgroundResource(R.drawable.round_red)
-            currentOperator = PLUS
-            textView.text = operand2.toString()
+            tapOperatorButton(PLUS)
         }
 
         buttonMinus.setOnClickListener {
-            disableOperator()
-            buttonMinus.isClickable = true
-            buttonMinus.setBackgroundResource(R.drawable.round_red)
-            currentOperator = MINUS
-            textView.text = operand2.toString()
+            tapOperatorButton(MINUS)
         }
 
         buttonMul.setOnClickListener {
-            disableOperator()
-            buttonMul.isClickable = true
-            buttonMul.setBackgroundResource(R.drawable.round_red)
-            currentOperator = MUL
-            textView.text = operand2.toString()
+            tapOperatorButton(MUL)
         }
 
         button0.setOnClickListener {
-            if(currentOperator == 0) {
-                operand1 = operand1 * 10 + 0
-                textView.text = operand1.toString()
-                enableOperator()
-                buttonEqual.isClickable = false
-                buttonEqual.setBackgroundResource(R.drawable.round_gray)
-            }
-            else {
-                operand2 = operand2 * 10 + 0
-                textView.text = operand2.toString()
-                disableOperator()
-                buttonEqual.isClickable = true
-                buttonEqual.setBackgroundResource(R.drawable.round_yellow)
-            }
+            tapNumberButton(0)
         }
 
         button1.setOnClickListener {
-            if(currentOperator == 0) {
-                operand1 = operand1 * 10 + 1
-                textView.text = operand1.toString()
-                enableOperator()
-                buttonEqual.isClickable = false
-                buttonEqual.setBackgroundResource(R.drawable.round_gray)
-            }
-            else {
-                operand2 = operand2 * 10 + 1
-                textView.text = operand2.toString()
-                disableOperator()
-                buttonEqual.isClickable = true
-                buttonEqual.setBackgroundResource(R.drawable.round_yellow)
-            }
+            tapNumberButton(1)
         }
 
         button2.setOnClickListener {
-            if(currentOperator == 0) {
-                operand1 = operand1 * 10 + 2
-                textView.text = operand1.toString()
-                enableOperator()
-                buttonEqual.isClickable = false
-                buttonEqual.setBackgroundResource(R.drawable.round_gray)
-            }
-            else {
-                operand2 = operand2 * 10 + 2
-                textView.text = operand2.toString()
-                disableOperator()
-                buttonEqual.isClickable = true
-                buttonEqual.setBackgroundResource(R.drawable.round_yellow)
-            }
+            tapNumberButton(2)
         }
 
         button3.setOnClickListener {
-            if(currentOperator == 0) {
-                operand1 = operand1 * 10 + 3
-                textView.text = operand1.toString()
-                enableOperator()
-                buttonEqual.isClickable = false
-                buttonEqual.setBackgroundResource(R.drawable.round_gray)
-            }
-            else {
-                operand2 = operand2 * 10 + 3
-                textView.text = operand2.toString()
-                disableOperator()
-                buttonEqual.isClickable = true
-                buttonEqual.setBackgroundResource(R.drawable.round_yellow)
-            }
+            tapNumberButton(3)
         }
 
         button4.setOnClickListener {
-            if(currentOperator == 0) {
-                operand1 = operand1 * 10 + 4
-                textView.text = operand1.toString()
-                enableOperator()
-                buttonEqual.isClickable = false
-                buttonEqual.setBackgroundResource(R.drawable.round_gray)
-            }
-            else {
-                operand2 = operand2 * 10 + 4
-                textView.text = operand2.toString()
-                disableOperator()
-                buttonEqual.isClickable = true
-                buttonEqual.setBackgroundResource(R.drawable.round_yellow)
-            }
+            tapNumberButton(4)
         }
 
         button5.setOnClickListener {
-            if(currentOperator == 0) {
-                operand1 = operand1 * 10 + 5
-                textView.text = operand1.toString()
-                enableOperator()
-                buttonEqual.isClickable = false
-                buttonEqual.setBackgroundResource(R.drawable.round_gray)
-            }
-            else {
-                operand2 = operand2 * 10 + 5
-                textView.text = operand2.toString()
-                disableOperator()
-                buttonEqual.isClickable = true
-                buttonEqual.setBackgroundResource(R.drawable.round_yellow)
-            }
+            tapNumberButton(5)
         }
 
         button6.setOnClickListener {
-            if(currentOperator == 0) {
-                operand1 = operand1 * 10 + 6
-                textView.text = operand1.toString()
-                enableOperator()
-                buttonEqual.isClickable = false
-                buttonEqual.setBackgroundResource(R.drawable.round_gray)
-            }
-            else {
-                operand2 = operand2 * 10 + 6
-                textView.text = operand2.toString()
-                disableOperator()
-                buttonEqual.isClickable = true
-                buttonEqual.setBackgroundResource(R.drawable.round_yellow)
-            }
+            tapNumberButton(6)
         }
 
         button7.setOnClickListener {
-            if(currentOperator == 0) {
-                operand1 = operand1 * 10 + 7
-                textView.text = operand1.toString()
-                enableOperator()
-                buttonEqual.isClickable = false
-                buttonEqual.setBackgroundResource(R.drawable.round_gray)
-            }
-            else {
-                operand2 = operand2 * 10 + 7
-                textView.text = operand2.toString()
-                disableOperator()
-                buttonEqual.isClickable = true
-                buttonEqual.setBackgroundResource(R.drawable.round_yellow)
-            }
+            tapNumberButton(7)
         }
 
         button8.setOnClickListener {
-            if(currentOperator == 0) {
-                operand1 = operand1 * 10 + 8
-                textView.text = operand1.toString()
-                enableOperator()
-                buttonEqual.isClickable = false
-                buttonEqual.setBackgroundResource(R.drawable.round_gray)
-            }
-            else {
-                operand2 = operand2 * 10 + 8
-                textView.text = operand2.toString()
-                disableOperator()
-                buttonEqual.isClickable = true
-                buttonEqual.setBackgroundResource(R.drawable.round_yellow)
-            }
+            tapNumberButton(8)
         }
 
         button9.setOnClickListener {
-            if(currentOperator == 0) {
-                operand1 = operand1 * 10 + 9
-                textView.text = operand1.toString()
-                enableOperator()
-                buttonEqual.isClickable = false
-                buttonEqual.setBackgroundResource(R.drawable.round_gray)
-            }
-            else {
-                operand2 = operand2 * 10 + 9
-                textView.text = operand2.toString()
-                disableOperator()
-                buttonEqual.isClickable = true
-                buttonEqual.setBackgroundResource(R.drawable.round_yellow)
-            }
+            tapNumberButton(9)
         }
 
     }
 
+    fun tapOperatorButton(type:Int){
+        disableOperator()
+        when(type){
+            PLUS ->{
+                buttonPlus.isEnabled = true
+                buttonPlus.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#F00000"))
+                currentOperator = PLUS
+            }
+            MINUS ->{
+                buttonMinus.isEnabled = true
+                buttonMinus.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#F00000"))
+                currentOperator = MINUS
+            }
+            MUL ->{
+                buttonMul.isEnabled = true
+                buttonMul.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#F00000"))
+                currentOperator = MUL
+            }
+        }
+
+        textView.text = operand2.toString()
+    }
+
+    fun tapNumberButton(number:Int){
+        if(currentOperator == 0) {
+            operand1 = operand1 * 10 + number
+            textView.text = operand1.toString()
+            enableOperator()
+            buttonEqual.isEnabled = false
+            buttonEqual.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#A0A0A0"))
+        }
+        else {
+            operand2 = operand2 * 10 + number
+            textView.text = operand2.toString()
+            disableOperator()
+            buttonEqual.isEnabled = true
+            buttonEqual.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#F0F000"))
+        }
+    }
+
     fun disableOperator(){
-        buttonPlus.setBackgroundResource(R.drawable.round_gray)
-        buttonPlus.isClickable = false
-        buttonMinus.setBackgroundResource(R.drawable.round_gray)
-        buttonMinus.isClickable = false
-        buttonMul.setBackgroundResource(R.drawable.round_gray)
-        buttonMul.isClickable = false
-        buttonEqual.setBackgroundResource(R.drawable.round_gray)
-        buttonEqual.isClickable = false
+        buttonPlus.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#A0A0A0"))
+        buttonPlus.isEnabled = false
+        buttonMinus.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#A0A0A0"))
+        buttonMinus.isEnabled = false
+        buttonMul.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#A0A0A0"))
+        buttonMul.isEnabled = false
+        buttonEqual.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#A0A0A0"))
+        buttonEqual.isEnabled = false
     }
 
     fun enableOperator(){
-        buttonPlus.setBackgroundResource(R.drawable.round_yellow)
-        buttonPlus.isClickable = true
-        buttonMinus.setBackgroundResource(R.drawable.round_yellow)
-        buttonMinus.isClickable = true
-        buttonMul.setBackgroundResource(R.drawable.round_yellow)
-        buttonMul.isClickable = true
-        buttonEqual.setBackgroundResource(R.drawable.round_yellow)
-        buttonEqual.isClickable = true
+        buttonPlus.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#F0F000"))
+        buttonPlus.isEnabled = true
+        buttonMinus.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#F0F000"))
+        buttonMinus.isEnabled = true
+        buttonMul.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#F0F000"))
+        buttonMul.isEnabled = true
+        buttonEqual.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#F0F000"))
+        buttonEqual.isEnabled = true
     }
 }
